@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>My Website</title>
+	<title>Protected Website</title>
 	<style>
         body {
     	font-family: 'Handlee', cursive;
@@ -39,14 +39,17 @@
 			border: none
 		}
 	</style>
+
 </head>
 <body>
-	<h1>Enter The Password</h1>
-	<form>
-		<label for="password">Password:</label>
-		<input type="password" id="password" name="plzletmein">
-		<input type="submit" value="Submit">
-	</form>
+	<script>
+		var password = prompt("Please enter the password to access this website:");
+		if (password !== "plzletmein") {
+			alert("Incorrect password. You do not have access to this website.");
+			window.location.href = "https://www.example.com/";
+		}
+	</script>
+    <!-- Your protected content goes here -->
 
 	<nav>
 		<a href="#" onclick="loadPage('home')">Home</a>
@@ -74,7 +77,6 @@
 		}
 	</script>
 
-
+	
 </body>
 </html>
-
