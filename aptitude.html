@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Website</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		/* Style for navigation bar */
+		.navbar {
+      overflow: hidden;
+      background-color: #515050;
+    }
+
+    .navbar a {
+      float: left;
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    .navbar a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    /* Style for active link in navbar */
+    .active {
+      background-color: #4CAF50;
+    }
+
+    /* Style for PDF viewer */
+    .pdf-container {
+      margin-top: 10px;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: calc(100vh - 120px);
+    }
+
+    .pdf-object {
+      width: 90%;
+      height: 100%;
+
+    }
+
+    /* Style for HTML viewer */
+    .html-container {
+      margin-top: 60px;
+      display: none;
+      height: calc(100vh - 120px);
+    }
+
+    .html-object {
+      width: 100%;
+      height: 100%;
+    }
+
+	</style>
+</head>
+<body>
+	<!-- Navigation bar for PDF files -->
+	<div class="navbar">
+		<a href="#" onclick="showPDF('pdf1')">PDF 1</a>
+		<a href="#" onclick="showPDF('pdf2')">PDF 2</a>
+		<a href="#" onclick="showPDF('pdf3')">PDF 3</a>
+	  </div>
+	
+
+	  
+	  <!-- PDF viewer for PDF 1 -->
+	  <div class="pdf-container" id="pdf1">
+		<object class="pdf-object" data="https://drive.google.com/file/d/1o1AWXDlCiO5l14DY4EGxHTM6XfXf5Knw/preview" type="application/pdf"></object>
+	  </div>
+	
+	  <!-- PDF viewer for PDF 2 -->
+	  <div class="pdf-container" id="pdf2">
+		<object class="pdf-object" data="https://drive.google.com/file/d/[PDF_ID_2]/preview" type="application/pdf"></object>
+	  </div>
+	
+	  <!-- PDF viewer for PDF 3 -->
+	  <div class="pdf-container" id="pdf3">
+		<object class="pdf-object" data="https://drive.google.com/file/d/1o1AWXDlCiO5l14DY4EGxHTM6XfXf5Knw/preview" type="application/pdf"></object>
+	  </div>
+	
+
+
+
+	  <!-- JavaScript to handle navigation bar functionality -->
+	
+	  <script>
+		function showPDF(id) {
+		  // Hide all PDF viewers
+		  var pdfContainers = document.querySelectorAll(".pdf-container");
+		  for (var i = 0; i < pdfContainers.length; i++) {
+			pdfContainers[i].style.display = "none";
+		  }
+	
+		  // Deactivate all nav bar links
+		  var navLinks = document.querySelectorAll(".navbar a");
+		  for (var i = 0; i < navLinks.length; i++) {
+			navLinks[i].className = navLinks[i].className.replace(" active", "");
+		  }
+	
+		  // Show selected PDF viewer and activate corresponding nav bar link
+		  document.getElementById(id).style.display = "flex";
+		  var currentLink = document.querySelector("[onclick*='" + id + "']");
+		  currentLink.className += " active";
+		}
+	  </script>
+
+</body>
+</html>
+

@@ -1,0 +1,90 @@
+<!--
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PDF Viewer with Navigation Bar</title>
+	<style>
+		/* Style the navigation bar */
+		.navbar {
+			overflow: hidden;
+			background-color: #515050;
+			position: fixed;
+			top: 10px;
+			width: 100%;
+		}
+
+		/* Style the links inside the navigation bar */
+		.navbar a {
+			float: left;
+			display: block;
+			color: white;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+		}
+
+		.navbar a:hover {
+			background-color: #ddd;
+			color: black;
+		}
+
+		/* Change the color of the active link */
+		.active {
+			background-color: #e45454;
+		}
+
+		/* Style the iframe container */
+		.iframe-container {
+            margin-top: 10px;
+      		align-items: center;
+      		height: calc(100vh - 50px); /*adjusting height of container*/
+			border: none;
+		}
+
+		/* Style the iframe */
+		iframe {
+			height: 100%;
+			width: 90%;
+            border: none;
+            
+		}
+	</style>
+</head>
+<body>
+
+	/* Navigation bar */
+	<div class="navbar">
+		<a href="#" onclick="loadPDF('https://drive.google.com/file/d/1o1AWXDlCiO5l14DY4EGxHTM6XfXf5Knw/preview')">PDF 1</a>
+		<a href="#" onclick="loadPDF('https://drive.google.com/file/d/your_pdf_file_id_2/view?usp=sharing')">PDF 2</a>
+		<a href="#" onclick="loadPDF('https://drive.google.com/file/d/1o1AWXDlCiO5l14DY4EGxHTM6XfXf5Knw/preview')">PDF 3</a>
+	</div>
+
+	/* Iframe container */
+	<div class="iframe-container">
+		<iframe id="pdf-iframe"></iframe>
+	</div>
+
+
+	<script>
+		// Function to load PDF into the iframe
+		function loadPDF(url) {
+			// Set the active link
+			var links = document.getElementsByClassName("active");
+			for (var i = 0; i < links.length; i++) {
+				links[i].className = "";
+			}
+			event.target.className = "active";
+			// Load the PDF into the iframe
+			document.getElementById("pdf-iframe").src = "https://drive.google.com/file/d/" + url.split("/")[5] + "/preview";
+		}
+		// Load the first PDF on page load
+		loadPDF('https://drive.google.com/file/d/your_pdf_file_id_1/view?usp=sharing');
+	</script>
+
+
+</body>
+</html>
+
+-->
+
+<h1>hello</h1>
